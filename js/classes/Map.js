@@ -6,7 +6,7 @@ function Map(center, zoom, size, canvas) {
     this.canvas = canvas;
 }
 
-Map.prototype.load = function() {
+Map.prototype.load = function(callback) {
     var self = this;
 
     var mapImage = new Image;
@@ -21,6 +21,9 @@ Map.prototype.load = function() {
 
     mapImage.onload = function () {
         self.canvas.drawBackground(mapImage);
+
+        if (callback)
+            callback();
     }
 };
 
@@ -44,4 +47,19 @@ Map.prototype.getPixelByCoordinate = function (targetCoordinate) {
     var targetY = ((targetPoint.y - centerPoint.y) * scale) + this.height/2;
 
     return new Vector2(targetX, targetY);
+};
+
+Map.prototype.drawPoint = function (targetVector2) {
+    var canvas = this.canvas;
+    canvas.drawPoint(targetVector2);
+};
+
+Map.prototype.getClickPoint = function (event) {
+    var canvas = this.canvas;
+    return canvas.getCursorPosition(event);
+};
+
+Map.prototype.save = function () {
+    var canvas = this.canvas;
+    window.location.href = canvas.toImage();
 };

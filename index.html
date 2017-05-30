@@ -5,18 +5,26 @@
     <title>Seaways Analyzer</title>
 
     <script src="js/vendor/jquery.js"></script>
-    <script src="js/classes/MercatorProjection.js"></script>
-    <script src="js/classes/Canvas.js"></script>
     <script src="js/classes/Coordinate.js"></script>
     <script src="js/classes/Vector2.js"></script>
+    <script src="js/classes/Track.js"></script>
+    <script src="js/classes/MercatorProjection.js"></script>
+    <script src="js/classes/Canvas.js"></script>
     <script src="js/classes/Map.js"></script>
 </head>
 <body>
 
+<p>Первая строка файла удаляется!!!</p>
+
 <canvas id="canvas" width="640" height="640"></canvas>
 
 <form id="input-data-form">
-    <input type="file" id="input-data" name="tracking_data">
+    <input type="file"   id="input-data">
+    <input type="text"   id="map-center-latitude"  placeholder="Latitude"  value="43.033102">
+    <input type="text"   id="map-center-longitude" placeholder="Longitude" value="131.891223">
+    <input type="number" id="map-size"             placeholder="Zoom"      value="14">
+    <input type="button" id="rerender-button"      value="Отрисовать">
+    <input type="button" id="save-button"          value="Сохранить">
 </form>
 
 </body>
