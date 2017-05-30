@@ -1,6 +1,15 @@
 <?php
-    $input_data = $_FILES["tracking_data"];
+    header("Content-Type: image/png");
 
-    $tracking_items = file($input_data["tmp_name"], FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $query = $_SERVER["QUERY_STRING"];
 
-    return ($tracking_items);
+
+    $curlSession = curl_init();
+    curl_setopt($curlSession, CURLOPT_URL, "http://maps.google.com/maps/api/staticmap?".$query);
+    curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+    curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+
+    $data = curl_exec($curlSession);
+    curl_close($curlSession);
+
+    echo $data;

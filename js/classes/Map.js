@@ -10,13 +10,14 @@ Map.prototype.load = function(callback) {
     var self = this;
 
     var mapImage = new Image;
-    mapImage.src = "http://maps.google.com/maps/api/staticmap" +
+    mapImage.src = "backend.php" +
         "?center=" + this.center +
         "&zoom=" + this.zoom +
         "&size=" + this.width + "x" + this.height +
         "&style=element:labels|visibility:off" +
         "&style=feature:landscape|color:0xcbe6a3|visibility:on" +
         "&style=feature:water|color:0x77AAff|visibility:on" +
+        "&key=AIzaSyD9KTtXesAVZfT2lsTJIacfLsjrqoely6s" +
         "&maptype=satellite";
 
     mapImage.onload = function () {
