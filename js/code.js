@@ -10,19 +10,6 @@ $(document).ready(function(){
         map.save();
     });
 
-    document.getElementById("canvas").onmouseup = function(event) {
-        var clickPoint = map.getClickPoint(event);
-        var clickCoordinate = map.getCoordinateByPixel(clickPoint);
-
-        $("#map-center-latitude").val(clickCoordinate.latitude);
-        $("#map-center-longitude").val(clickCoordinate.longitude);
-        $("#map-size").val(parseInt($("#map-size").val()) + (event.which == 3 ? -1 : 1));
-
-        startMap(onMapLoaded);
-    };
-
-    document.getElementById("canvas").addEventListener('contextmenu', function (event) {event.preventDefault();});
-
     startMap();
 });
 
@@ -37,6 +24,19 @@ function startMap (callback) {
     var mapSize = 640;
 
     map = new Map(mapCenter, mapZoom, mapSize, mapCanvas);
+
+    document.getElementById("canvas").onmouseup = function(event) {
+        var clickPoint = map.getClickPoint(event);
+        var clickCoordinate = map.getCoordinateByPixel(clickPoint);
+
+        $("#map-center-latitude").val(clickCoordinate.latitude);
+        $("#map-center-longitude").val(clickCoordinate.longitude);
+        $("#map-size").val(parseInt($("#map-size").val()) + (event.which == 3 ? -1 : 1));
+
+        startMap(callback);
+    };
+
+    document.getElementById("canvas").addEventListener('contextmenu', function (event) {event.preventDefault();});
 
     return map.load(callback);
 }

@@ -15,6 +15,14 @@ Canvas.prototype.drawBackground = function (image) {
 };
 
 Canvas.prototype.drawPoint = function (targetVector2) {
+    var brushSize = 10;
+    var brushBlurSize = 10;
+
+    var r = brushSize + brushBlurSize;
+    var d = r * 2;
+    brushCanvas.width = d;
+    brushCanvas.height = d;
+
     var radius = 5;
 
     this.context.globalAlpha = 0.05;
