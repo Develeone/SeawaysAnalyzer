@@ -91,6 +91,7 @@ function parseTracks(data) {
         var time        = trackData[7];
 
         var coordinate = new Coordinate(latitude, longitude);
+
         var track = new Track(track_id, marine_id, coordinate, speed, course, age, time);
 
         tracks.push(track);
