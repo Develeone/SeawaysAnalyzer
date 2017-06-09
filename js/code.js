@@ -46,7 +46,7 @@ function onMapLoaded() {
 }
 
 function readTracksFile() {
-    var file = $("#input-data")[0].files[0];
+    var file = $("#input-tracks")[0].files[0];
 
     if (file) {
         var reader = new FileReader();

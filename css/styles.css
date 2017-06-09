@@ -1,0 +1,42 @@
+body {
+    background: #44c2c7 url('../images/bg.jpg') center;
+    background-size: cover;
+}
+
+.background-white { background-color: white; }
+
+.top-buffer { margin-top: 15px; }
+
+.padded-15 { padding: 15px; }
+
+.width-40 {
+    display: inline-block;
+    width: 40%;
+}
+
+.width-30 {
+    display: inline-block;
+    width: 40%;
+    padding: 0 7%;
+    cursor: pointer;
+}
+
+.btn, .form-control {
+    border-radius: 0;
+    margin: 0 10px;
+    border: 0;
+}
+
+.btn-primary {
+    background: #13818d;
+    padding: 10px 25px;
+}
+
+.btn-success {
+    background: #30a7ad;
+    padding: 10px 25px;
+}
+
+.map-outer-box { padding-top: 0; }
+
+.map-inner-box { padding-top: 6px; }
